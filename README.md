@@ -34,8 +34,6 @@ AUTH_GOOGLE_SECRET={google_secret}
 
 # TODO
 
-- custom 404
-- custom sign in page
-- auto redirect to sign in if not logged in
 - db setup
 - magic links as sign in option
+- Basic Account Page
