@@ -33,7 +33,6 @@ AUTH_GOOGLE_SECRET={google_secret}
 
 
 # TODO
-
-- db setup
-- magic links as sign in option
+- protect pages without middleware
 - Basic Account Page
+- stripe api integration
