@@ -33,6 +33,6 @@ AUTH_GOOGLE_SECRET={google_secret}
 
 
 # TODO
-- stripe api integration
-- User profiles
-- Handle settings with profiles
+- stripe api integration with onboarding flow
+- signin page callback url
+- hide sidebar in onboarding
