@@ -27,6 +27,7 @@ export default async function SignInPage() {
         <div className="flex flex-col w-full">
           <input name="email" placeholder='Email' className="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" />
         </div>
+        {/* Add this back in to use email and password login */}
         {/* <div className="flex flex-col w-full mt-3">
           <input name="password" type="password" placeholder="Password" className="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"  id="password" />
         </div> */}

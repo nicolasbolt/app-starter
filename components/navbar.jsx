@@ -34,7 +34,7 @@ import {
           {session?.user ? (
             <SignOut />
           //   {/* TODO */}
-          //   {/* <Link href='/app/profile'> */}
+          //   {/* <Link href='/profile'> */}
           //   {/* <ProfileDropdown /> */}
           // {/* </Link> */}
 

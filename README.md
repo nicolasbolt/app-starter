@@ -33,6 +33,6 @@ AUTH_GOOGLE_SECRET={google_secret}
 
 
 # TODO
-- protect pages without middleware
-- Basic Account Page
 - stripe api integration
+- User profiles
+- Handle settings with profiles
