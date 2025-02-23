@@ -33,6 +33,7 @@ AUTH_GOOGLE_SECRET={google_secret}
 
 
 # TODO
-- stripe api integration with onboarding flow
+- stripe api integration with onboarding flow (NEED TO TEST)
+- user route (NEED TO TEST)
 - signin page callback url
 - hide sidebar in onboarding

@@ -46,12 +46,12 @@ const OnboardingUserData = ({ session }) => {
   };
 
   const pricingData = {
-    price_id_1:
-      '',
+    price_1Qvg4yP4LCUvUb2VxfS1oNST:
+      'https://buy.stripe.com/test_aEU16W3UH8uWfNm6or',
     price_id_2: '<STRIPE_LINK>',
     price_id_3:
       '<STRIPE_LINK>',
-    price_1QRY0dP4LCUvUb2V1csG2MIG: '<STRIPE_LINK>',
+    price_id_4: '<STRIPE_LINK>',
   };
 
   return (
