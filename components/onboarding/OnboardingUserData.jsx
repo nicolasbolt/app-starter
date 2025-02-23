@@ -22,13 +22,23 @@ const OnboardingUserData = ({ session }) => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(session?.user?.email);
 
+  const pricingData = {
+    price_1Qvg4yP4LCUvUb2VxfS1oNST:
+      'https://buy.stripe.com/test_aEU16W3UH8uWfNm6or',
+    price_id_2: '<STRIPE_LINK>',
+    price_id_3:
+      '<STRIPE_LINK>',
+    price_id_4: '<STRIPE_LINK>',
+  };
+
   const router = useRouter();
 
   const changeName = (e) => {
     setName(e.target.value);
   };
 
-  const setUserData = async () => {
+  const setUserData = () => {
+    console.log('SETTING USER DATA...');
     // update user data in mongodb
     // try {
     //   await fetch(
@@ -43,15 +53,6 @@ const OnboardingUserData = ({ session }) => {
 
     // redirect to next onboarding step (payment screen)
     router.push(`${pricingData[priceId]}?prefilled_email=${email}`);
-  };
-
-  const pricingData = {
-    price_1Qvg4yP4LCUvUb2VxfS1oNST:
-      'https://buy.stripe.com/test_aEU16W3UH8uWfNm6or',
-    price_id_2: '<STRIPE_LINK>',
-    price_id_3:
-      '<STRIPE_LINK>',
-    price_id_4: '<STRIPE_LINK>',
   };
 
   return (

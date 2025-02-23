@@ -1,10 +1,14 @@
+'use client';
+
 import { signIn, auth, providerMap } from "@/auth"
 import { Button } from "@/components/ui/button"
 import { providerLogoMap } from "@/lib/constants"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
- 
-export default async function SignInPage({ searchParams }) {
-  const callbackURL = await searchParams?.callbackUrl || '/';
+import { useSearchParams } from 'next/navigation';
+
+const SiginInPage = () => {
+  const searchParams = useSearchParams();
+  const callbackURL = searchParams.get('callbackUrl');
 
   return (
     <Card className="flex flex-col gap-2 mt-5 md:w-4/12 w-11/12 mx-auto">
@@ -25,7 +29,12 @@ export default async function SignInPage({ searchParams }) {
           await signIn("sendgrid", formData)
       }}
       >
-        <input type="hidden" name="redirectTo" value={callbackURL} />
+        { callbackURL ? (
+            <input type="hidden" name="redirectTo" value={callbackURL} />
+        ) : (
+            <input type="hidden" name="redirectTo" value="/" />
+        )}
+        
         <div className="flex flex-col w-full">
           <input name="email" placeholder='Email' className="p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" id="email" />
         </div>
@@ -48,7 +57,7 @@ export default async function SignInPage({ searchParams }) {
             <form
             action={async () => {
                 "use server"
-                await signIn(provider.id, { redirectTo: callbackURL })
+                await signIn(provider.id, { redirectTo: callbackURL || "/" });
             }}
             >
           <Button className='w-full' variant='outline' type="submit">
@@ -63,3 +72,5 @@ export default async function SignInPage({ searchParams }) {
     </Card>
   )
 }
+
+export default SiginInPage
