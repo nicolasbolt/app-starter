@@ -154,8 +154,3 @@ Here are some libraries and useful tools I used to build this project.
 * [shadcn](https://github.com/shadcn)
 * [lucide-react](https://github.com/lucide-icons/lucide)
 * [tailwindcss](https://tailwindcss.com/)
-
-
-# TODO
-- stripe api integration with onboarding flow (NEED TO TEST)
-- user route (NEED TO TEST)

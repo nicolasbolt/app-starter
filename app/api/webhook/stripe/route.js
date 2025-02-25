@@ -20,7 +20,7 @@ export async function POST(req) {
   let eventType;
   let event;
 
-  console.log('Verifying Stripe Event...');
+  console.log('VERIFYING STRIPE EVENT...');
   try {
     event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
   } catch (err) {
@@ -32,13 +32,10 @@ export async function POST(req) {
   data = event.data;
   eventType = event.type;
 
-  console.log('data: ', data);
-  console.log('eventType: ', eventType);
-
   try {
     switch (eventType) {
       case 'checkout.session.completed': {
-        console.log('Entering Checkout Session Completed...');
+        console.log('ENTERING CHECKOUT SESSION COMPLETED...');
         // First payment is successful and a subscription is created (if mode was set to "subscription" in ButtonCheckout)
         // ✅ Grant access to the product
         let user;
@@ -63,6 +60,7 @@ export async function POST(req) {
           console.log('User from DB: ', user);
 
           if (!user) {
+            console.log('CREATING USER...')
             user = await User.create({
               email: customer.email,
               name: customer.name,

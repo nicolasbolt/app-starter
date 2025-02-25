@@ -37,19 +37,22 @@ const OnboardingUserData = ({ session }) => {
     setName(e.target.value);
   };
 
-  const setUserData = () => {
+  const setUserData = async () => {
     console.log('SETTING USER DATA...');
     // update user data in mongodb
-    // try {
-    //   await fetch(
-    //     `/api/user?language=${language}&level=${level}&nativeLanguage=${nativeLanguage}`,
-    //     {
-    //       method: 'POST',
-    //     }
-    //   );
-    // } catch (error) {
-    //   console.error('Error saving language and level: ', error);
-    // }
+    try {
+      await fetch(
+        `/api/user`,
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            name
+          })
+        }
+      );
+    } catch (error) {
+      console.error('Error saving language and level: ', error);
+    }
 
     // redirect to next onboarding step (payment screen)
     router.push(`${pricingData[priceId]}?prefilled_email=${email}`);
