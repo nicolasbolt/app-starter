@@ -13,12 +13,13 @@ export const GET = auth(async function GET(req) {
   try {
 
     await connectDB();
-    const user = await User.findOne({ email: serverSession.user.email });
+    const user = await User.findOne({ email: req.auth.user.email });
 
     console.log('User GET request successful');
     return NextResponse.json(user);
   } catch (error) {
     console.error('Error in User GET request ', error);
+    return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
   }
 })
 
@@ -49,5 +50,6 @@ export const POST = auth(async function POST(req) {
     return NextResponse.json(res_body);
   } catch (error) {
     console.error('Error in User POST request: ', error);
+    return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
   }
 })
