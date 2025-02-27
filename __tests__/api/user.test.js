@@ -1,4 +1,4 @@
-import { GET } from '@/app/api/user/route'
+import { GET, POST } from '@/app/api/user/route'
 import { connectTestDB, closeTestDB } from '../utils/testDb'
 import User from '@/models/User'
 import { createMocks } from 'node-mocks-http'
@@ -58,5 +58,54 @@ describe('GET /api/user', () => {
       email: "test@example.com",
       group: 0,
           })
+  })
+})
+
+describe('POST /api/user', () => {
+  beforeAll(async () => {
+    await connectTestDB()
+    await User.create({ email: 'test@example.com', username: 'oldName' })
+  })
+
+  afterAll(async () => {
+    await closeTestDB()
+  })
+
+  it('should return 401 if not authenticated', async () => {
+    const { req, res } = createMocks({
+      method: 'POST',
+    })
+    
+    req.json = jest.fn().mockResolvedValue({ name: 'newName' })
+
+    const response = await POST(req, res)
+
+    const responseBody = await response.text()
+    const responseJson = JSON.parse(responseBody)
+
+    expect(response.status).toBe(401)
+    expect(responseJson).toEqual({ message: 'Unauthorized' })
+  })
+
+  it('should update user data if authenticated', async () => {
+    const { req, res } = createMocks({
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer valid-token',
+      },
+    })
+    
+    req.json = jest.fn().mockResolvedValue({ name: 'newName' })
+
+    const response = await POST(req, res)
+
+    const responseBody = await response.text()
+    const responseJson = JSON.parse(responseBody)
+
+    expect(response.status).toBe(200)
+    expect(responseJson).toEqual({ message: 'User POST request successful' })
+
+    const updatedUser = await User.findOne({ email: 'test@example.com' })
+    expect(updatedUser.username).toBe('newName')
   })
 })

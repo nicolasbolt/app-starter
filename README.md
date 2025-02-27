@@ -6,6 +6,7 @@
 * [![MongoDB][MongoDB]][MongoDB-url]
 * [![NextAuth][NextAuth]][NextAuth-url]
 * [![Stripe][Stripe]][Stripe-url]
+* [![Jest][Jest]][Jest-url]
 
 [Next.js]: https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
@@ -15,6 +16,8 @@
 [NextAuth-url]: https://next-auth.js.org/
 [Stripe]: https://img.shields.io/badge/Stripe-008CDD?style=for-the-badge&logo=stripe&logoColor=white
 [Stripe-url]: https://stripe.com/
+[Jest]: https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white
+[Jest-url]: https://jestjs.io/
 
 
 ## Getting Started
