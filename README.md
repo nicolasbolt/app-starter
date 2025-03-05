@@ -138,6 +138,13 @@ Go to http://localhost:3000 to get to the homepage, you will have to login befor
 
 After creating a Stripe price page, you can go through the onboarding flow with the price id from the Stripe setup by going to http://localhost:3000/onboarding/1?priceId={PRICE_ID}
 
+### Tests
+You can run the tests with:
+
+```
+npm run test
+```
+
 ## License
 Distributed under the MIT License.  See `LICENSE` for more information.
 
