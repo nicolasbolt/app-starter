@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # TODO use environments in Github instead of this
     env:
       AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
       AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
