@@ -152,6 +152,7 @@ There are two CI/CD pipelines both have the same stages:
 - Deploy
 
 deploy-prod.yml will run when a commit is pushed to the main branch.
+
 deploy-dev.yml will run when a commit is pushed to the dev branch.
 
 ## License
